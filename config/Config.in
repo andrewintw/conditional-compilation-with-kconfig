@@ -11,10 +11,10 @@ choice
 	prompt "Model Name"
 	depends on  HW_MODEL_IOT
 	config IOT_MODEL_A
-		   bool "A Model"
+		   bool "Model A"
 		   depends on	HW_MODEL_IOT
 	config IOT_MODEL_B
-		   bool "B Model"
+		   bool "Model B"
 		   depends on	HW_MODEL_IOT
 endchoice
 

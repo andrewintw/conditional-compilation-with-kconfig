@@ -55,7 +55,6 @@ clean:
 			$(MAKE) -C $$d $@; \
 		fi \
 	done
-	@tree -a -L 2
 
 
 distclean: clean
