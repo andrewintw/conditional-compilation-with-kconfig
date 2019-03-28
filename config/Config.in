@@ -1,0 +1,46 @@
+
+source config/Config-customize.in
+
+config  HW_MODEL_IOT
+		bool "IoT devices"
+		help
+		  select IoT devices
+
+
+choice
+	prompt "Model Name"
+	depends on  HW_MODEL_IOT
+	config IOT_MODEL_A
+		   bool "A Model"
+		   depends on	HW_MODEL_IOT
+	config IOT_MODEL_B
+		   bool "B Model"
+		   depends on	HW_MODEL_IOT
+endchoice
+
+
+config WIFI
+	   bool "Support WiFi"
+	   depends on IOT_MODEL_A || IOT_MODEL_B
+	   default y
+
+
+config NAT
+	   bool "Support NAT"
+	   depends on IOT_MODEL_A || IOT_MODEL_B
+
+
+config IPV6
+	   bool "Support IPv6 (only for Model A)"
+	   depends on IOT_MODEL_A
+		help
+		  only support in Model A
+
+
+config VPN
+	   bool "Support VPN (only for Model B)"
+	   depends on IOT_MODEL_B
+		help
+		  only support in Model B
+
+
